@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Елизавета Нурдаева | Репетитор по английскому языку</title>
+    <meta name="description" content="Индивидуальные занятия английским онлайн для взрослых и детей. Персональный подход, результат за 3 месяца. Пробный урок бесплатно.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS Variables & Global Styles --- */
+        :root {
+            --primary: #40E0D0; /* Turquoise */
+            --primary-dark: #20B2AA;
+            --secondary: #F5F5F5; /* Light Grey */
+            --accent: #FFA500; /* Warm Orange */
+            --accent-hover: #e59400;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Components --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .header-cta {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .header-cta {
+                display: inline-block;
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.1) 0%, rgba(255, 255, 255, 1) 100%);
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column-reverse; /* Text bottom on mobile */
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .hero-content {
+                flex-direction: row;
+                text-align: left;
+            }
+            .hero-text {
+                flex: 1;
+            }
+            .hero-image {
+                flex: 1;
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: 20px 20px 0px var(--primary);
+            /* Placeholder styling */
+            background-color: #ddd; 
+            min-height: 300px;
+            object-fit: cover;
+        }
+
+        /* --- CTA / Test Section --- */
+        .test-section {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .test-container {
+            background-color: rgba(255,255,255,0.1);
+            padding: 50px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .test-container {
+                flex-direction: row;
+                text-align: left;
+            }
+            .test-content {
+                flex: 2;
+            }
+            .test-img {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+            }
+            .test-img img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid var(--white);
+            }
+        }
+
+        /* --- Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 15px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .service-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .level-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .level-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+
+        .level-title {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* --- Advantages --- */
+        .advantages {
+            background-color: var(--secondary);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .advantage-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .advantage-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .advantage-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- Testimonials --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 2rem;
+            color: #eee;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* --- Prices --- */
+        .prices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .price-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .price-card.featured {
+            background: linear-gradient(135deg, #fff 0%, #f0fffd 100%);
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .price-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        /* --- About Me --- */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .about-content {
+                flex-direction: row;
+            }
+            .about-img {
+                flex: 1;
+            }
+            .about-text {
+                flex: 1;
+            }
+        }
+
+        .about-img img {
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .markers {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .marker {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        /* --- Contact / Form --- */
+        .contact-section {
+            background-color: var(--secondary);
+        }
+
+        .contact-wrapper {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-contacts {
+            margin-bottom: 30px;
+        }
+
+        .footer-contacts a {
+            color: var(--primary);
+            margin: 0 10px;
+            font-weight: 600;
+        }
+
+        .footer-contacts a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* Mobile Menu Helper */
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplification for single file: hidden on mobile */
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">Елизавета Нурдаева</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#prices">Цены</a></li>
+                    <li><a href="#about">Обо мне</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn header-cta">Записаться</a>
+            <div class="mobile-menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Английский язык, который работает на вас. Онлайн в группах и индивидуально.</h1>
+                    <p>Преодолейте языковой барьер с персональным репетитором. Гибкий график, интересные уроки и реальный прогресс, который вы почувствуете.</p>
+                    <a href="#contact" class="btn">Записаться на пробный урок</a>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder image: Replace 'src' with your actual photo URL -->
+                    <img src="images/Elizaveta.jpg" alt="Елизавета Нурдаева репетитор">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test / CTA Section -->
+    <section class="section-padding test-section">
+        <div class="container test-container">
+            <div class="test-img">
+                <!-- Placeholder portrait: Replace 'src' with your actual portrait -->
+                <img src="images/Elizaveta2.jpg" alt="Елизавета портрет">
+            </div>
+            <div class="test-content">
+                <h3>Не уверены в своем уровне? Это нормально!</h3>
+                <p>Я, Елизавета Нурдаева, помогу вам определить отправную точку. Пройдите бесплатный 10-минутный тест, и я пришлю разбор результатов с рекомендацией по обучению.</p>
+                <br>
+                <a href="#contact" class="btn" style="background: var(--white); color: var(--text-dark);">Пройти бесплатный тест</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Курсы, которые помогут вам достичь цели</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px auto; color: var(--text-light);">
+                Все занятия — онлайн-встречи в Zoom. Только вы и я. Это гарантия полного внимания и программы, созданной специально для вас.
+            </p>
+            <div class="services-grid">
+                <!-- Adults -->
+                <div class="service-card">
+                    <div class="service-header">Для взрослых</div>
+                    <ul class="level-list">
+                        <li><span class="level-title">Beginner (A1):</span> Старт с нуля.</li>
+                        <li><span class="level-title">Elementary (A2):</span> Повседневное общение.</li>
+                    </ul>
+                </div>
+                <!-- Kids -->
+                <div class="service-card">
+                    <div class="service-header">Для детей (6-14 лет)</div>
+                    <ul class="level-list">
+                        <li><span class="level-title">Starter:</span> Игровой английский для малышей.</li>
+                        <li><span class="level-title">Junior:</span> Помощь со школьной программой.</li>
+                    </ul>
+                    <div style="margin-top: 20px; text-align: center;">
+                        <a href="#contact" class="btn">Подобрать программу</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages -->
+    <section id="advantages" class="section-padding advantages">
+        <div class="container">
+            <h2 class="section-title">Почему учиться со мной комфортно?</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon"><i class="fas fa-laptop-house"></i></div>
+                    <h3>Доступно</h3>
+                    <p>Только ноутбук и интернет. Занимайтесь из любого места.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon"><i class="fas fa-user-check"></i></div>
+                    <h3>Персонально</h3>
+                    <p>Программа, основанная на ваших целях, темпе и интересах.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon"><i class="fas fa-couch"></i></div>
+                    <h3>Комфортно</h3>
+                    <p>Учитесь в своей любимой обстановке. Главное — готовность к общению.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon"><i class="fas fa-history"></i></div>
+                    <h3>Регулярно</h3>
+                    <p>Пропустили урок? Всегда можно получить запись и материалы.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Эффективно</h3>
+                    <p>Фокус на разговорной практике и реальных жизненных ситуациях.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Надежно</h3>
+                    <p>Я — ваш постоянный репетитор на всем пути обучения.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Меня рекомендуют друзьям</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Я очень довольна, что с этого года ребенок занимается дополнительно англиским с Елизаветой Анатольевной. Она располагает к себе детей, учит не боятся ошибок. У ребенка уходит страх. Дочь начала самостоятельно на слух пробовать писать слова, стала лучше читать. Занятия проходят малыми группами, в непринужденной обстановке, дополняются играми и даже чаепитием."</p>
+                    <p class="testimonial-author">Ольга Кудрявцева</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Мой сын занимался год английским у Елизаветы. До этого пробовали учиться в других школах, но с моим гиперактивным сыном справлялись не все педагоги. Елизавета нашла подход к моему сыну, который не может долго сидеть на месте. Мне нравится, как проходят занятия. Видно, что Елизавета любит детей и легко находит с ними общий язык.".</p>
+                    <p class="testimonial-author">Ольга М.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices -->
+    <section id="prices" class="section-padding advantages">
+        <div class="container">
+            <h2 class="section-title">Прозрачные цены</h2>
+            <div class="prices-grid">
+                <div class="price-card">
+                    <div class="price-title">Пробный урок</div>
+                    <div class="price-amount">0 руб.</div>
+                    <div class="price-note">30 минут <br>Знакомство и тестирование</div>
+                    <a href="#contact" class="btn" style="background-color: var(--primary);">Записаться</a>
+                </div>
+                <div class="price-card">
+                    <div class="price-title">Разовое занятие</div>
+                    <div class="price-amount">1450 руб.</div>
+                    <div class="price-note">60 минут <br>Для взрослых</div>
+                    <a href="#contact" class="btn" style="background-color: var(--primary);">Выбрать</a>
+                </div>
+                <div class="price-card featured">
+                    <div class="price-title">Абонемент 4 урока</div>
+                    <div class="price-amount">4800 руб.</div>
+                    <div class="price-note">Скидка 10% <br>Экономия 1000 руб.</div>
+                    <a href="#contact" class="btn">Купить</a>
+                </div>
+                <div class="price-card">
+                    <div class="price-title">Абонемент 8 уроков</div>
+                    <div class="price-amount">7200 руб.</div>
+                    <div class="price-note">Скидка 22% <br>Экономия 2600 руб.</div>
+                    <a href="#contact" class="btn" style="background-color: var(--primary);">Купить</a>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #666;">* Для детей продолжительность и цена могут отличаться.</p>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Давайте знакомиться!</h2>
+            <div class="about-content">
+                <div class="about-img">
+                     <!-- Placeholder: Replace with casual/friendly photo -->
+                    <img src="images/Elizaveta4" alt="Елизавета Нурдаева фото">
+                </div>
+                <div class="about-text">
+                    <p>Меня зовут Елизавета Нурдаева. Я — переводчик в сфере профессиональной коммуникации и преподаватель английского с 5-летним опытом. Закончила РУДН, имею сертификат Young Learners, DELTA Module One .</p> 
+                    <br>
+                    <p>«Моя миссия — превратить изучение английского из скучной обязанности в ваше любимое хобби. Я создаю безопасное пространство, где не страшно ошибаться, а грамматика становится простой и логичной. Моя цель — чтобы вы заговорили свободно и без стресса, чувствуя поддержку на каждом шагу.»!</p>
+                    
+                    <div class="markers">
+                        <div class="marker"><i class="fas fa-check-circle" style="color:var(--primary);"></i> Опыт 5+ лет</div>
+                        <div class="marker"><i class="fas fa-check-circle" style="color:var(--primary);"></i> РУДН, Certificate Young Learners, Delta Module One </div>
+                        <div class="marker"><i class="fas fa-check-circle" style="color:var(--primary);"></i> Индивидуальный подход</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="section-padding contact-section">
+        <div class="container">
+            <h2 class="section-title">Первый шаг к свободному английскому</h2>
+            <div class="contact-wrapper">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Ваше имя *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Телефон / Telegram *" required>
+                    </div>
+                    <div class="form-group">
+                        <select>
+                            <option value="" disabled selected>Ваша цель</option
+                            <option value="travel">Для путешествий</option>
+                            <option value="study">Для учебы</option>
+                            <option value="child">Для ребенка</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Комментарий (желаемое время, текущий уровень)"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Отправить заявку</button>
+                    <p style="font-size: 0.8rem; text-align: center; color: #999;">Нажимаю кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-contacts">
+                <a href="mailto:natalia@english-tutor.ru"><i class="far fa-envelope"></i> ea.nurdaeva@gmail.com</a>
+                <a href="#"><i class="fab fa-telegram"></i> @Elizaveta Nurdaeva</a>
+                <a href="#"><i class="fab fa-whatsapp"></i> +7926 137 9157</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Елизавета Нурдаева. Все права защищены.</p>
+                <p><a href="#" style="color: #666; font-size: 0.8rem;">Политика конфиденциальности</a> | <a href="#" style="color: #666; font-size: 0.8rem;">Оферта</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for mobile menu toggle (optional functionality)
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            const nav = document.querySelector('.nav-links');
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '60px';
+                nav.style.left = '0';
+                nav.style.width = '100%';
+                nav.style.background = '#fff';
+                nav.style.padding = '20px';
+                nav.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
